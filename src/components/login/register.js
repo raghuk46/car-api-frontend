@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import authentication from "../../authentication.svg";
 
+import { API_URL } from "../../constants";
+
 function Register(props) {
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
@@ -9,7 +11,7 @@ function Register(props) {
 
   const onSubmit = async () => {
     try {
-      const registerRes = await fetch("http://localhost:5000/register", {
+      const registerRes = await fetch(`${API_URL}/register`, {
         method: "post",
         headers: {
           "Content-Type": "application/json",

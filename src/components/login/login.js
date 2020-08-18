@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 
 import authentication from "../../authentication.svg";
 import { AuthContext } from "../../utils/AuthContext";
+import { API_URL } from "../../constants";
 
 function Login(props) {
   const [message, setMessage] = useState();
@@ -15,7 +16,8 @@ function Login(props) {
         setType("error");
         setMessage("username & password cannot be null");
       } else {
-        const authUser = await fetch("http://localhost:5000/login", {
+        console.log(API_URL);
+        const authUser = await fetch(`${API_URL}/login`, {
           method: "post",
           headers: {
             "Content-Type": "application/json",

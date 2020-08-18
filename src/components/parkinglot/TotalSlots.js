@@ -4,6 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { DirectionsCar } from "@material-ui/icons";
 
 import { AuthContext } from "../../utils/AuthContext";
+import { API_URL } from "../../constants";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -19,7 +20,7 @@ const TotalSlots = () => {
 
   useEffect(() => {
     const getAvaialableSlots = async () => {
-      const response = await fetch("http://localhost:5000/slots", {
+      const response = await fetch(`${API_URL}/slots`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${authContext.current.user}`,
